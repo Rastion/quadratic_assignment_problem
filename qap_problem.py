@@ -1,5 +1,5 @@
 from qubots.base_problem import BaseProblem
-import random
+import random, os
 
 class QuadraticAssignmentProblem(BaseProblem):
     """
@@ -21,6 +21,13 @@ class QuadraticAssignmentProblem(BaseProblem):
         self._load_instance(instance_file)
 
     def _load_instance(self, filename):
+
+        # Resolve relative path with respect to this module’s directory.
+        if not os.path.isabs(filename):
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            filename = os.path.join(base_dir, filename)
+
+
         with open(filename, "r") as f:
             # Read all integers from the file
             data = list(map(int, f.read().split()))
