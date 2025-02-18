@@ -1,0 +1,40 @@
+{
+    "entry_point": "qap_problem:QuadraticAssignmentProblem",
+    "default_params": {
+      "instance_file": "instances/esc32a.dat"
+    },
+    "problem_type": "Quadratic Assignment Problem",
+    "description": "The Quadratic Assignment Problem (QAP) is a classic combinatorial optimization problem. Given n facilities and n locations, with a distance matrix A (between locations) and a flow matrix B (between facilities), the goal is to assign each facility to a unique location so as to minimize the total cost defined as the sum of products A[i][j] * B[p[i]][p[j]].",
+    "keywords": [
+      "QAP",
+      "assignment",
+      "optimization",
+      "combinatorial",
+      "permutation"
+    ],
+    "data_format": {
+      "instance_file": {
+        "format": "A text file where the first integer is n (number of facilities/locations), followed by n*n integers for the distance matrix A (row-major order), and then n*n integers for the flow matrix B (row-major order)."
+      }
+    },
+    "decision_variables": {
+      "permutation": {
+        "type": "list of int",
+        "description": "A permutation of integers 0 to n-1, where the i-th entry represents the facility assigned to location i."
+      }
+    },
+    "objective": {
+      "type": "minimization",
+      "function": "Cost = sum_{i=0}^{n-1} sum_{j=0}^{n-1} A[i][j] * B[p[i]][p[j]]",
+      "description": "Minimize the total cost incurred by the assignment, where cost is defined as the sum of the product of the distance between locations and the flow between the facilities assigned to those locations."
+    },
+    "solution_representation": "A list of integers representing a permutation of facility assignments.",
+    "compatible_optimizers": [
+      "genetic_algorithm",
+      "simulated_annealing",
+      "particle_swarm",
+      "tabu_search",
+      "rl_optimizer"
+    ]
+  }
+  
