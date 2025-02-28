@@ -3,14 +3,18 @@
     "default_params": {
       "instance_file": "instances/esc32a.dat"
     },
-    "problem_type": "Quadratic Assignment Problem",
+    "creator": "Rastion",
+    "type": "problem",
+    "problem_name": "Quadratic assignment problem",
     "description": "The Quadratic Assignment Problem (QAP) is a classic combinatorial optimization problem. Given n facilities and n locations, with a distance matrix A (between locations) and a flow matrix B (between facilities), the goal is to assign each facility to a unique location so as to minimize the total cost defined as the sum of products A[i][j] * B[p[i]][p[j]].",
+    "link_to_dataset": "https://github.com/Rastion/quadratic_assignment_problem/blob/main/instances/esc32a.dat",
     "keywords": [
       "QAP",
       "assignment",
       "optimization",
       "combinatorial",
-      "permutation"
+      "permutation",
+      "supply-chain"
     ],
     "data_format": {
       "instance_file": {
@@ -29,12 +33,8 @@
       "description": "Minimize the total cost incurred by the assignment, where cost is defined as the sum of the product of the distance between locations and the flow between the facilities assigned to those locations."
     },
     "solution_representation": "A list of integers representing a permutation of facility assignments.",
-    "compatible_optimizers": [
-      "genetic_algorithm",
-      "simulated_annealing",
-      "particle_swarm",
-      "tabu_search",
-      "rl_optimizer"
+    "formulations": [
+      ""
     ]
   }
   
